@@ -7,8 +7,6 @@ var textArray = [
     'test2'
 ];
 
-var random = Math.floor(Math.random()*textArray.length);
-
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^.*weed.*$/;
@@ -33,6 +31,7 @@ function postMessage() {
     method: 'POST'
   };
 
+  var random = Math.floor(Math.random()*textArray.length);
   botResponse = textArray[random];
   
   body = {
