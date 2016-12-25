@@ -2,6 +2,11 @@ var HTTPS = require('https');
 
 var botID = process.env.BOT_ID;
 
+var textArray = [
+    'test1',
+    'test2'
+];
+
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^.*weed.*$/;
@@ -26,7 +31,8 @@ function postMessage() {
     method: 'POST'
   };
 
-  botResponse = "Are you kidding me? Grow up!";
+  var randomNumber = Math.floor(Math.random()*textArray.length);
+  botResponse = randomNumber;
   
   body = {
     "bot_id" : botID,
